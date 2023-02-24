@@ -7,7 +7,7 @@ export type Post = {
 	preface: string;
 	body: string;
 	tags: TagData[];
-	images: MicroCMSImage;
+	image: MicroCMSImage;
 };
 
 export type PostData = MicroCMSListContent & Post;
