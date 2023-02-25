@@ -55,7 +55,7 @@
         // font-family: var(--font-mono);
         letter-spacing: 0.2rem;	
         a {
-          color: rgb(var(--color-red));
+          color: rgb(var(--color-theme));
           text-decoration: none;
           &:hover {
             opacity: 0.5;
