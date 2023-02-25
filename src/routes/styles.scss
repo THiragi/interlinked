@@ -5,15 +5,15 @@
 		Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 	--font-mono: 'Fira Mono', monospace;
 	--max-width: 1200;
-	--color-red: 170, 33, 83;
+	--color-theme: 13, 38, 71;
 	--color-shadow: 0, 0, 0;
 	--side-space: 16px;
-	--color-darkness1: 13, 26, 60;
-	--color-darkness2: 68, 68, 68;
+	--color-darkness1: 15, 15, 15;
+	--color-darkness2: 63, 63, 63;
 	--color-darkness3: 108, 108, 108;
-	--color-lightness1: 249, 250, 251;
-	--color-lightness2: 231, 237, 243;
-	--color-lightness3: 226, 226, 226;
+	--color-lightness1: 255, 255, 255;
+	--color-lightness2: 232, 234, 237;
+	--color-lightness3: 108, 202, 205;
 }
 
 body {
@@ -55,4 +55,8 @@ input[type='text'] {
 		color: var(--color-border);
 		style: solid;
 	}
+}
+
+iframe {
+	margin: 0 auto;
 }
