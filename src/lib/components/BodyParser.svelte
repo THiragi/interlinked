@@ -23,18 +23,18 @@
 					props: { src: node.attribs.src, alt: node.attribs?.alt ?? '' }
 				};
 			}
-      if (isTag(node) && node.name === 'a' && node.attribs?.href?.includes('https://youtu.be/')) {
-        return {
-          component: CustomYoutubeRenderer,
-          props: { id: node.attribs.href.replace('https://youtu.be/', '') }
-        };
-      }
-      if (isTag(node) && node.name === 'a' && node.attribs?.href?.includes('https://twitter.com/')) {
-        return {
-          component: CustomTweetRenderer,
-          props: { href: node.attribs.href }
-        };
-      }
+      // if (isTag(node) && node.name === 'a' && node.attribs?.href?.includes('https://youtu.be/')) {
+      //   return {
+      //     component: CustomYoutubeRenderer,
+      //     props: { id: node.attribs.href.replace('https://youtu.be/', '') }
+      //   };
+      // }
+      // if (isTag(node) && node.name === 'a' && node.attribs?.href?.includes('https://twitter.com/')) {
+      //   return {
+      //     component: CustomTweetRenderer,
+      //     props: { href: node.attribs.href.replace('https://twitter.com/', '') }
+      //   };
+      // }
 		}}
 	/>
   
