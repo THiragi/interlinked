@@ -25,12 +25,12 @@
           props: { id: node.attribs.href.replace('https://youtu.be/', '') }
         };
       }
-      if (isTag(node) && node.name === 'a' && node.attribs?.href?.includes('https://twitter.com/')) {
-        return {
-          component: CustomTweetRenderer,
-          props: { href: node.attribs.href.replace('https://twitter.com/', '') }
-        };
-      }
+      // if (isTag(node) && node.name === 'a' && node.attribs?.href?.includes('https://twitter.com/')) {
+      //   return {
+      //     component: CustomTweetRenderer,
+      //     props: { href: node.attribs.href.replace('https://twitter.com/', '') }
+      //   };
+      // }
 		}}
 	/>
   
