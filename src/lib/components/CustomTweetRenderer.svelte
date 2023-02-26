@@ -5,23 +5,17 @@
   const embedSrc = `https://embed-media.vercel.app/tweet?id=${id}&code=${code}`;
 </script>
 
-<span>
+<div>
   <iframe src={embedSrc} title={code} allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy">
   </iframe>
-</span>
+</div>
 
 <style lang="scss">
-  span {
-    display: block;
-    width: 100%;
-    height: 300px;
-    margin: 1.5rem auto;
-    box-sizing: border-box;
+  div {
+    text-align: center;
     iframe {
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
+      width: 520px;
+      height: 740px;
       border: none;
     }
   }

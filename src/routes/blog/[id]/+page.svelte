@@ -26,5 +26,4 @@
 			height={image.height}
 		/>
 	<BodyParser html={body.replaceAll('/n', '<br/>')} />
-  <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 </section>
