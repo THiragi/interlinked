@@ -5,11 +5,6 @@
   const [id, _, code] = href.split('/');
   const embedSrc = `https://embed-media.vercel.app/tweet?id=${id}&code=${code}`;
 
-  let iframe: HTMLIFrameElement;
-  onMount(() => {
-    iframe.style.width = iframe.contentWindow?.document.body.scrollWidth + 'px';
-    iframe.style.height = iframe.contentWindow?.document.body.scrollHeight + 'px';
-  })
 </script>
 
 <div>

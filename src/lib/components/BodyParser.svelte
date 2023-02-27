@@ -2,12 +2,20 @@
 
 <script lang="ts">
 	import { Html, isTag } from 'html-svelte-parser';
+	import CustomEmbedTweet from './CustomEmbedTweet.svelte';
   import CustomYoutubeRenderer from './CustomYoutubeRenderer.svelte';
-  import CustomTweetRenderer from './CustomTweetRenderer.svelte';
 	import ResponsiveImage from './ResponsiveImage.svelte';
 	export let html: string;
 
+	const includesTweet = html.includes('https://twitter.com/');
+
 </script>
+
+<svelte:head>
+	{#if includesTweet}
+		<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+	{/if}
+</svelte:head>	
 
 <div class="body">
 	<Html
@@ -25,12 +33,12 @@
           props: { id: node.attribs.href.replace('https://youtu.be/', '') }
         };
       }
-      // if (isTag(node) && node.name === 'a' && node.attribs?.href?.includes('https://twitter.com/')) {
-      //   return {
-      //     component: CustomTweetRenderer,
-      //     props: { href: node.attribs.href.replace('https://twitter.com/', '') }
-      //   };
-      // }
+      if (isTag(node) && node.name === 'a' && node.attribs?.href?.includes('https://twitter.com/')) {
+        return {
+          component: CustomEmbedTweet,
+          props: { href: node.attribs.href }
+        };
+      }
 		}}
 	/>
   
