@@ -2,19 +2,10 @@
   import BodyParser from '$lib/components/BodyParser.svelte';
 	import ResponsiveImage from '$lib/components/ResponsiveImage.svelte';
 	import type { PostData } from '$lib/types/post';
-	export let data: PostData;
-  const {title, image, body } = data;
-
-  // let script: HTMLScriptElement;
-
-  // onMount(() => {
-  //   script = document.createElement('script');
-  //   script.src = "https://platform.twitter.com/widgets.js";
-  //   document.body.appendChild(script);
-  // })
-  // onDestroy(() => {
-  //   document.body.removeChild(script);
-  // })
+  import type { OgObject } from 'open-graph-scraper/lib/types';
+	export let data: {content: PostData, ogDatas: OgObject[]};
+  const { content, ogDatas } = data;
+  const {title, image, body } = content;
 </script>
 
 <section>
@@ -25,5 +16,5 @@
 			width={image.width}
 			height={image.height}
 		/>
-	<BodyParser html={body.replaceAll('/n', '<br/>')} />
+	<BodyParser html={body.replaceAll('/n', '<br/>')} {ogDatas}/>
 </section>
