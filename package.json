@@ -33,6 +33,7 @@
 	"dependencies": {
 		"date-fns": "^2.29.3",
 		"html-svelte-parser": "^0.0.1",
-		"microcms-js-sdk": "^2.3.2"
+		"microcms-js-sdk": "^2.3.2",
+		"open-graph-scraper": "^5.1.1"
 	}
 }
