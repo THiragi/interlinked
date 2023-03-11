@@ -1,18 +1,18 @@
 
 
 <script lang="ts">
-	import type { OgObject } from 'open-graph-scraper/lib/types';
 	import { Html, isTag, isText } from 'html-svelte-parser';
 	import type { Element, Text} from 'html-svelte-parser';
-	import { getDomainFromUrl } from '$lib/utils/ogp';
 	import CustomEmbedTweet from './CustomEmbedTweet.svelte';
 	import CustomLinkCard from './CustomLinkCard.svelte';
   import CustomYoutubeRenderer from './CustomYoutubeRenderer.svelte';
 	import ResponsiveImage from './ResponsiveImage.svelte';
+	import type { OgData } from '$lib/types/ogp';
 	export let html: string;
-	export let ogDatas: OgObject[];
+	export let ogDatas: OgData[];
 
 	const includesTweet = html.includes('https://twitter.com/');
+	console.log(includesTweet)
 
 	const processNode = (node: Element | Text) => {
 		if (isTag(node)) {
@@ -35,19 +35,14 @@
 						props: { href: node.attribs.href }
 					};
 				}
-				if (!!node.firstChild && isText(node.firstChild) && node.firstChild.data === node.attribs?.href) {
-					const ogData = ogDatas.find((data) => data?.ogUrl === node.attribs?.href)
-					const ogImage = ogData?.ogImage;
-					const image = Array.isArray(ogImage) ? ogImage[0] : typeof ogImage === 'string' ? undefined : ogImage;
-					const url = ogData?.ogUrl ?? '';
-					const title = ogData?.ogTitle ?? '';
-					const description = ogData?.ogDescription ?? '';
-					const domain = getDomainFromUrl(ogData?.ogUrl) ?? '';
-					const imageUrl = `${domain}${image?.url}`;
-					return {
-						component: CustomLinkCard,
-						props: { url: url, title: title, description: description, domain: domain, imageUrl: imageUrl }
-					};
+				if (!!node.firstChild && isText(node.firstChild) && node.firstChild?.data === node.attribs?.href) {
+					const ogData = ogDatas.find((data) => data?.url === node.attribs?.href)
+					if (!!ogData) {
+						return {
+							component: CustomLinkCard,
+							props: { ogData: ogData }
+						};
+					}
 				}
 			}
 		}

@@ -27,7 +27,7 @@
 		margin: 0 0 3rem 0;
 		position: relative;
 		img {
-			background:linear-gradient(90deg, rgb(var(--color-lightness1)),rgb(var(--color-lightness3)),rgb(var(--color-lightness1)));
+			background:linear-gradient(90deg, rgb(var(--color-lightness1)),rgb(var(--color-accent)),rgb(var(--color-lightness1)));
 			background-size: 500% 500%;
 			animation-name: bggradient;
 			animation-duration: 2s;

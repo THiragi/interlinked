@@ -1,68 +1,74 @@
 <script lang="ts">
-  export let url: string;
-  export let title: string;
-  export let description: string;
-  export let imageUrl: string;
-  export let domain: string;
-  
+  import type { OgData } from "$lib/types/ogp";
+  export let ogData: OgData;
+  const {url, description, title, domain, ogImageSrc } = ogData;
 </script>
 
 <a href={url} target="_blanck">
-  <picture>
-    <img src={imageUrl} alt={title} />
-  </picture>
+  <div class="ogImage">
+    <img src={ogImageSrc} alt={title} />
+  </div>
   <div class="info">
-    <div class="content">
-      <h1>{title}</h1>
-      <div class="description">
-        {description}
-      </div>
+    <h1>{title}</h1>
+    <div class="description">
+      {description}
     </div>
     <div class="domain">
       <img src="https://www.google.com/s2/u/0/favicons?domain={domain}" alt="{domain}"/>
-      <div class="name">{domain}</div>
+      {domain}
     </div>
   </div>
 </a>
 
 <style lang="scss">
   a {
-    display: block;
-    border: 1px solid rgb(var(--color-darkness3));
-    // box-shadow: 0 0.3rem 1.2rem 0 rgba(var(--color-shadow), 10%);
-    border-radius: 0.8rem;
+    display: flex;
+    border: 1px solid rgb(var(--color-lightness3));
+    border-radius: 0.5rem;
     overflow: hidden;
-    transition: 0.3s;
     &:hover {
-      transform: scale(1.025);
+      background-color: rgba(var(--color-lightness2), 0.4);
     }
-    img {
-      aspect-ratio: 2.4/1;
-      height: auto;
-      width: 100%;
-      object-fit: cover;
+    .ogImage {
+      height: 120px;
+      img {
+        height: 120px;
+        width: 120px;
+        object-fit: cover;
+      }
     }
     .info {
-      padding: 1rem ;
+      padding: 0.8rem 1.2rem;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      .content {
-        h1 {
-          margin: 0 0 0.4rem 0;
-          font-size: 1rem;
-        }
-        .description {
-          margin: 0.4rem 0 0.8rem 0;
-          font-size: 0.8rem;
-          line-height: 1rem;
-        }
+      width: calc(100% - 130px);
+      h1 {
+        user-select: none;
+        word-break: break-word;
+        margin: 0;
+        font-size: 1.2rem;
+      }
+      .description {
+        margin:0 ;
+        color: rgba(var(--color-darkness3), 0.8);
+        font-size: 0.8rem;
+        line-height: 1rem;
+        width: 98%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
       }
       .domain {
-        // display: flex;
-        // justify-content: space-between;
-        // align-items: center;
-        color: rgba(var(--color-darkness2), 0.8);
+        display: flex;
+        align-items: center;
+        font-size: 0.75rem;
+        img {
+          height: 14px;
+          width: 14px;
+          margin-right: 0.4rem;
+        }
+        color: rgba(var(--color-darkness1),  1);
       }
     }
   }

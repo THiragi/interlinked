@@ -11,6 +11,7 @@ export const load: ServerLoad = async ({ params, fetch }) => {
 	const urls = getUrls(content.body);
 
 	const ogDatas = await getOgpDatas(urls);
+
 	return {
 		content,
 		ogDatas

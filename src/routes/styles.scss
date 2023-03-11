@@ -13,7 +13,8 @@
 	--color-darkness3: 108, 108, 108;
 	--color-lightness1: 255, 255, 255;
 	--color-lightness2: 232, 234, 237;
-	--color-lightness3: 108, 202, 205;
+	--color-lightness3: 222, 223, 225;
+	--color-accent: 108, 202, 205;
 }
 
 body {
@@ -22,6 +23,12 @@ body {
 	font-family: var(--font-body);
 	background-color: rgb(var(--color-lightness1));
 	color: rgb(var(--color-darkness1));
+}
+
+a {
+	color: inherit;
+	transition: 0.4s;
+	text-decoration: none;
 }
 
 input,
