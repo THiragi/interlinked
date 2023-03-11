@@ -37,8 +37,6 @@
 		position: relative;
 		box-sizing: border-box;
     header {
-      // position: fixed;
-      // z-index: 2;
       margin:0;	
       .inner {
         max-width: calc(var(--max-width) * 1px);

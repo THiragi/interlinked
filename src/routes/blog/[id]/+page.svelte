@@ -2,8 +2,8 @@
   import BodyParser from '$lib/components/BodyParser.svelte';
 	import ResponsiveImage from '$lib/components/ResponsiveImage.svelte';
 	import type { PostData } from '$lib/types/post';
-  import type { OgObject } from 'open-graph-scraper/lib/types';
-	export let data: {content: PostData, ogDatas: OgObject[]};
+	import type { OgData } from '$lib/types/ogp';
+	export let data: {content: PostData, ogDatas: OgData[]};
   const { content, ogDatas } = data;
   const {title, image, body } = content;
 </script>

@@ -22,6 +22,7 @@
 
 <style lang="scss">
   a {
+    margin: 2.4rem 0;
     display: flex;
     border: 1px solid rgb(var(--color-lightness3));
     border-radius: 0.5rem;

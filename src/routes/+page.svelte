@@ -9,6 +9,7 @@
 <section>
   {#each contents as content}
     <article>
+      <a href={`/blog/${content.id}`}>
       <div class="image">
         <picture>
           <source srcSet={`${content.image.url}?fit=crop&w=373&h=197&dpr=2&fm=webp`} media="(min-width: 768px)" type="image/webp"/>
@@ -36,6 +37,7 @@
           </div>
         </div>
       </div>
+    </a>
     </article>
 
   {/each}
@@ -56,35 +58,37 @@
     }
 
     article {
-      .image {
-        // border-radius: 0.8rem;
-        overflow: hidden;
-        aspect-ratio: 1.9/1;
-        img {
-          width: 100%;
-          height: auto;
-          object-fit: cover;
-          transition: 0.3s;
-        }
-      }
-      .info {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        .preface {
-
-        }
-        .status {
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          .publishedAt {
-            font-family: var(--font-mono);
+      a {
+        .image {
+          // border-radius: 0.8rem;
+          overflow: hidden;
+          aspect-ratio: 1.9/1;
+          img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            transition: 0.3s;
           }
-          .tags {
-            span {
-              background-color: rgb(var(--color-darkness1));
-              color: rgb(var(--color-lightness1));
+        }
+        .info {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          .preface {
+  
+          }
+          .status {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            .publishedAt {
+              font-family: var(--font-mono);
+            }
+            .tags {
+              span {
+                background-color: rgb(var(--color-darkness1));
+                color: rgb(var(--color-lightness1));
+              }
             }
           }
         }
