@@ -1,27 +1,26 @@
 <script lang="ts">
-  import type { OgObject } from "open-graph-scraper/lib/types";
-  import { getDomainFromUrl } from '$lib/utils/ogp';
-  export let ogData: OgObject | undefined;
-
-  const ogImage = ogData?.ogImage;
-  const image = Array.isArray(ogImage) ? ogImage[0] : typeof ogImage === 'string' ? undefined : ogImage;
-  const domain = getDomainFromUrl(ogData?.ogUrl);
+  export let url: string;
+  export let title: string;
+  export let description: string;
+  export let imageUrl: string;
+  export let domain: string;
+  
 </script>
 
-<a href={ogData?.ogUrl} target="_blanck">
+<a href={url} target="_blanck">
   <picture>
-    <img src={`${ogData?.ogUrl}${image?.url}`} alt={ogData?.ogTitle} />
+    <img src={imageUrl} alt={title} />
   </picture>
   <div class="info">
     <div class="content">
-      <h1>{ogData?.ogTitle}</h1>
+      <h1>{title}</h1>
       <div class="description">
-        {ogData?.ogDescription}
+        {description}
       </div>
     </div>
     <div class="domain">
-      <img src="https://www.google.com/s2/u/0/favicons?domain=${domain}" alt="${domain}"/>
-      <div class="name">${domain}</div>
+      <img src="https://www.google.com/s2/u/0/favicons?domain={domain}" alt="{domain}"/>
+      <div class="name">{domain}</div>
     </div>
   </div>
 </a>
