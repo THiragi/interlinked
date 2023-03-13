@@ -3,8 +3,9 @@
 	import ResponsiveImage from '$lib/components/ResponsiveImage.svelte';
 	import type { PostData } from '$lib/types/post';
 	import type { OgData } from '$lib/types/ogp';
-	export let data: {content: PostData, ogDatas: OgData[]};
-  const { content, ogDatas } = data;
+	import type { AmazonItem } from '$lib/types/puppeteer';
+	export let data: {content: PostData, ogDatas: OgData[], amazonItems: AmazonItem[]};
+  const { content, ogDatas, amazonItems } = data;
   const {title, image, body } = content;
 </script>
 
@@ -16,5 +17,5 @@
 			width={image.width}
 			height={image.height}
 		/>
-	<BodyParser html={body.replaceAll('/n', '<br/>')} {ogDatas}/>
+	<BodyParser html={body.replaceAll('/n', '<br/>')} {ogDatas} {amazonItems}/>
 </section>
