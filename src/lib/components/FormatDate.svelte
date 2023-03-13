@@ -5,4 +5,4 @@
 	const date = parseISO(dateString);
 </script>
 
-<time datetime={dateString}>{format(date, dateFormat ?? 'yyyy.LL.dd' )}</time>
+<time datetime={dateString}>{format(date, dateFormat ?? 'yyyy.LL.dd')}</time>

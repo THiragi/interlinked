@@ -4,5 +4,5 @@ export type AmazonItem = {
 	result: string;
 	title: string;
 	price: string;
-	timestamp: number;
+	timestamp: string;
 };

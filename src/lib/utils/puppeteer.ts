@@ -28,9 +28,9 @@ export async function getAmazonItems(urls: string[]) {
 			result: 'success',
 			id,
 			url,
-			title: title.replace('Amazon | ', ''),
+			title,
 			price: price ?? '',
-			timestamp: Date.now()
+			timestamp: new Date().toLocaleString('sv-SE')
 		};
 	});
 	const result = await Promise.all(promise);
