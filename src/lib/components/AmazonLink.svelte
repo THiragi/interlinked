@@ -12,7 +12,7 @@
   const imageUrl = `https://images-fe.ssl-images-amazon.com/images/P/${id}.09.LZZZZZZZ`;
 </script>
 
-<a href={url} target="_blanck">
+<a href={url} target="_blank" rel="noopener noreferrer nofollow">
   <div class="ogImage">
     <img src={imageUrl} alt={title} />
   </div>

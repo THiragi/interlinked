@@ -4,7 +4,7 @@
   const {url, description, title, domain, ogImageSrc } = ogData;
 </script>
 
-<a href={url} target="_blanck">
+<a href={url} target="_blank" rel="noopener noreferrer nofollow">
   <div class="ogImage">
     <img src={ogImageSrc} alt={title} />
   </div>
