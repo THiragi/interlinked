@@ -5,7 +5,7 @@ import { getOgpDatas, getUrls } from '$lib/utils/ogp';
 import { scraper } from '$lib/config/scraper';
 import { getAmazonItems } from '$lib/utils/puppeteer';
 
-export const load: ServerLoad = async ({ params, fetch }) => {
+export const load = (async ({ params, fetch }) => {
 	const client = getClient(fetch);
 	const { id } = params;
 	if (!id) return;
@@ -22,4 +22,4 @@ export const load: ServerLoad = async ({ params, fetch }) => {
 		ogDatas,
 		amazonItems
 	};
-};
+}) satisfies ServerLoad;
