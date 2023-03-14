@@ -10,11 +10,11 @@
 
 <style lang="scss">
   div {
-    text-align: center;
-    box-sizing: border-box;
+    width: 100%;
+    aspect-ratio: 16 / 9;
     iframe {
-      width: 560px;
-      height: 315px;
+      width: 100%;
+      height: 100%;
       border: none;
     }
   }
